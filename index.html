@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Demo Formulář</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#FFFC00;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.box{
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  width:300px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #ddd;
+}
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:black;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Enter Your login</h2>
+<input id="Username" placeholder="Username">
+<input id="Password" placeholder="Password">
+<button onclick="saveName()">Continue</button>
+</div>
+
+<script>
+function saveName(){
+    const first = document.getElementById("Username").value;
+    const last = document.getElementById("Password").value;
+
+    if(!first || !last){
+        alert("Please enter both first and last name!");
+        return;
+    }
+
+    // uložíme jméno a příjmení do localStorage
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    users.push({first, last});
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // přesměrování na další stránku (Chat History demo)
+    window.location.href = "history.html";
+}
+</script>
+
+</body>
+</html>
