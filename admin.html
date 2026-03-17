@@ -1,72 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="cs">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="UTF-8">
+<title>Admin Panel</title>
+<style>
+body{
+font-family:Arial;
+background:#f2f2f2;
+display:flex;
+justify-content:center;
+padding-top:50px;
+}
+.box{
+background:white;
+padding:30px;
+border-radius:20px;
+width:400px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+li{
+margin:8px 0;
+}
+h2{text-align:center;}
+</style>
 </head>
+
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1">&lt;title&gt;Admin Panel&lt;/title&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1">body{</p>
-<p class="p1">font-family:Arial;</p>
-<p class="p1">background:#f2f2f2;</p>
-<p class="p1">display:flex;</p>
-<p class="p1">justify-content:center;</p>
-<p class="p1">padding-top:50px;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">.box{</p>
-<p class="p1">background:white;</p>
-<p class="p1">padding:30px;</p>
-<p class="p1">border-radius:20px;</p>
-<p class="p1">width:400px;</p>
-<p class="p1">box-shadow:0 10px 25px rgba(0,0,0,0.2);</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">li{</p>
-<p class="p1">margin:8px 0;</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="box"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;h2&gt;Admin Panel&lt;/h2&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;ul id="list"&gt;&lt;/ul&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">let users=JSON.parse(localStorage.getItem("users")||"[]")</p>
-<p class="p2"><br></p>
-<p class="p1">let ul=document.getElementById("list")</p>
-<p class="p2"><br></p>
-<p class="p1">users.forEach(u=&gt;{</p>
-<p class="p1">let li=document.createElement("li")</p>
-<p class="p1">li.textContent=u.first+" "+u.last</p>
-<p class="p1">ul.appendChild(li)</p>
-<p class="p1">})</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<div class="box">
+<h2>Admin Panel</h2>
+<ul id="list"></ul>
+</div>
+
+<script>
+const users = JSON.parse(localStorage.getItem("users") || "[]");
+const ul = document.getElementById("list");
+
+users.forEach(u => {
+    const li = document.createElement("li");
+    li.textContent = u.first + " " + u.last;
+    ul.appendChild(li);
+});
+</script>
+
 </body>
 </html>
